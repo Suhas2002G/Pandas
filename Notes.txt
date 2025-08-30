@@ -1,0 +1,139 @@
+
+-----------     1. DataFrame Creation    --------------
+pd.DataFrame(data) → Create a DataFrame.
+
+pd.Series(data) → Create a Series.
+
+pd.read_csv("file.csv") → Load data from CSV.
+
+pd.read_excel("file.xlsx") → Load from Excel.
+
+pd.read_sql(query, conn) → Load from SQL DB.
+
+pd.read_json("file.json") → Load JSON.
+
+
+-----------     2. Exploring Data   -----------
+
+df.head(n) → First n rows.
+
+df.tail(n) → Last n rows.
+
+df.info() → Column names, dtypes, memory.
+
+df.describe() → Summary statistics (mean, std, min, max).
+
+df.shape → (rows, columns).
+
+df.dtypes → Data types.
+
+df.columns → Column names.
+
+df.index → Row index.
+
+df.isnull().sum() → Count missing values.
+
+
+
+-----------     3. Selection & Filtering    -----------
+
+df['col'] / df[['col1','col2']] → Select columns.
+
+df.loc[rows, cols] → Label-based selection.
+
+df.iloc[rows, cols] → Index-based selection.
+
+df.query("Age > 25 & Gender == 'M'") → SQL-like filtering.
+
+
+
+-----------     4. Modification   -----------
+
+df['new_col'] = df['A'] + df['B'] → Add new column.
+
+df.drop(columns=['col']) → Drop column.
+
+df.drop(index=[0,1]) → Drop rows.
+
+df.rename(columns={'old':'new'}) → Rename column(s).
+
+df.astype({"col": int}) → Change datatype.
+
+df.fillna(value) → Fill missing values.
+
+df.dropna() → Remove missing values.
+
+
+
+-----------     5. Aggregation & Stats      -----------
+
+df.sum(), df.mean(), df.median(), df.std(), df.min(), df.max() → Stats.
+
+df.value_counts() → Count unique values (great for categorical data).
+
+df.nunique() → Count distinct values.
+
+df.groupby('col').agg({'x':'mean','y':'sum'}) → Group + aggregate.
+
+df.pivot_table(values='x', index='y', columns='z') → Pivot table.
+
+
+
+-----------     6. Sorting & Ordering   -----------
+
+df.sort_values(by='col', ascending=True) → Sort rows by column.
+
+df.sort_index() → Sort by index.
+
+
+
+-----------     7. Merging & Joining    -----------
+
+pd.concat([df1, df2]) → Stack DataFrames.
+
+pd.merge(df1, df2, on='key') → SQL-style join.
+
+df.join(df2, on='key') → Join by index/column.
+
+
+
+-----------     8. Exporting / Saving   -----------
+
+df.to_csv("file.csv", index=False) → Save to CSV.
+
+df.to_excel("file.xlsx", index=False) → Save to Excel.
+
+df.to_json("file.json") → Save to JSON.
+
+df.to_sql("table", conn) → Save to SQL DB.
+
+
+
+-----------     9. Utility & Transformations    -----------
+
+df.apply(func) → Apply function on columns/rows.
+
+df.applymap(func) → Apply element-wise function.
+
+df.map(func) → Apply function to Series.
+
+df.replace({old:new}) → Replace values.
+
+df.duplicated() → Check duplicates.
+
+df.drop_duplicates() → Remove duplicates.
+
+
+
+-----------     10. Visualization (built-in quick plots)    -----------
+df['col'].plot(kind='hist')
+df.plot(kind='scatter', x='col1', y='col2')
+
+
+
+(For serious work: use Matplotlib/Seaborn/Plotly).
+✨ Tip:
+For exploration → focus on head(), info(), describe(), value_counts().
+For cleaning → dropna(), fillna(), astype(), drop_duplicates().
+For analysis → groupby(), agg(), pivot_table().
+For saving → to_csv(), to_excel().
